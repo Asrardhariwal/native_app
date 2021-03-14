@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import FirstScreen from './screen/FirstScreen';
+import SecondScreen from './screen/SecondScreen';
+import ThirdScreen from './screen/ThirdScreen';
+import FourthScreen from './screen/FourthScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="FirstScreen" component={FirstScreen} />
+        <Stack.Screen name="SecondScreen" component={SecondScreen} />
+        <Stack.Screen name="ThirdScreen" component={ThirdScreen} />
+        <Stack.Screen name="FourthScreen" component={FourthScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
